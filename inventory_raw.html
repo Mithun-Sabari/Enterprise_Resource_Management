@@ -1,0 +1,177 @@
+<!doctype html5>
+<html>
+<head>
+<title>ERP Inventory</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<style>
+        * {
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+.header {
+  padding: 50px;
+ 
+  }
+  .header h1 {
+  font-size: 40px;
+  }
+     table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    a{
+      text-decoration: none;
+      color: rgb(102, 75, 126);
+    }
+  .topnav{
+    overflow:hidden;
+      background-color: #4CAF50;
+  }
+  .topnav a{
+    float:left;
+    display: block;
+    color: black;
+    
+    text-align: center;
+    padding: 14px 24px;
+    
+  }
+  .topnav a:hover{
+    background-color: #459d48;
+    
+  }
+  .just{
+    position: absolute;
+    right: 50px ;
+  }
+  .left{
+    position: absolute;
+    right:0px;
+  }
+  
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: absolute;
+  z-index: 1;
+  top: 277px;
+  right:0;
+  background-color: #4CAF50;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #646262;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  position:absolute;
+  right: 24px;
+}
+
+.openbtn:hover {
+  background-color: #459d48;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+#just{
+  margin-left: 32px;
+  padding: 10px 15px;
+
+}
+#just1{
+  margin-left: 32px;
+  padding: 10px 15px;
+}
+#dove{
+  font-size: 20px;
+  margin-left: 32px;
+  padding: 10px 15px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+</style>
+<script defer src="filter.js"></script>
+</head>
+<body>
+  <div id="main">
+  <div class="header">
+    <h1 style="text-align: center;">INVENTORY</h1>
+    <span style="text-align: center; right:50px;left:50px;   position: absolute;">ERP SYSTEM</span>
+    <br><br>
+  
+  </div>
+    <div class="topnav"> 
+	<span><a href="Home Page.html">HOME</a></span>
+      <a href="inventory.html">Finished Product</a>
+    <a href="#" style="background-color: #28862d;">Raw Materials</a>
+
+    <span class="just"><a href="#">ABOUT US</a></span>
+    <button class="openbtn" onclick="openNav()">Filter</button> 
+
+    </div><br>
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <div class="butt">
+      <a href="#" onclick="my_func()">Name</a><br>
+      <span id="just"></span><br>
+      <a href="#" onclick="my_func1()">ID</a>
+      <span id="just1"></span><br><br>
+      <button type='submit' id="dove">Search</button>
+      </div>
+    </div>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Id</th>
+      <th>Available Stock</th>
+      <th>Sold Stock</th>
+    </tr>
+  </table>
+  </div>
+</body>
+</html>

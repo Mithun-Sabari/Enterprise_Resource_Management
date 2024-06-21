@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 50px;
+  text-align: center;
+  background: dodgerblue;
+  color: black;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+
+
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+.side {
+  -ms-flex: 100%; /* IE10 */
+  flex: 100%;
+  background-color: #f1f1f1;
+  padding: 20px;
+height: 100%;
+}
+
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.tab1 {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: white;
+float: right;
+}
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+color: white;
+}
+
+.tab1 button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #333;
+color: white;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+#mySearch {
+  width: 100%;
+  font-size: 18px;
+  padding: 11px;
+  border: 1px solid #ddd;
+}
+
+#tb {
+width: 100%;
+border-collapse: collapse;
+}
+
+#tb td, #tb th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#tb th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+
+/* for create new dropdown */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>Sales and Purchase</h1>
+  <p>ERP system</p>
+</div>
+
+<!-- tab section -->
+<div class="tab">
+<button class="tablinks"><a href="Home Page.html">Home</a></button>
+  <button class="tablinks" onclick="openCity(event, 'Sales')">Sales</button>
+  <button class="tablinks" onclick="openCity(event, 'Quotation')">Quotation</button>
+  <button class="tablinks" onclick="openCity(event, 'Purchase order')">Purchase Order</button>
+ 
+<!-- in tab section, create new dropdown button -->
+<div class="dropdown">
+    <button class="dropbtn">Create New 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+<button class="tablinks" onclick="openCity(event, 'CreateQ')">Purchase Order
+      <a href="#">Create Quotation</a></button>
+<button class="tablinks" onclick="openCity(event, 'CreatePO')">Purchase Order
+      <a href="#">Create PO</a></button>
+<button class="tablinks" onclick="openCity(event, 'CreateInv')">Purchase Order
+      <a href="#">Create Invoice</a></button>
+
+    </div>
+  </div> 
+
+</div>
+
+<!-- if clicked on each item in tab, it'll open this following -->
+<div id="Sales" class="tabcontent">
+  <h3>Sales</h3>
+  <p><input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category"></p>
+<table id="tb">
+<tr> <th> Item name </th>
+<th> Item ID </th>
+</tr>
+<tr> <td> RJ 12 </td>
+<td> 12 </td>
+</tr>
+</table>
+
+</div>
+
+<!-- if clicked on each item in tab, it'll open this following -->
+<div id="Quotation" class="tabcontent">
+<h3> Quotation </h3>
+  <p><input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category"></p>
+<table id="tb">
+<tr> <th> Item name </th>
+<th> Item ID </th>
+</tr>
+<tr> <td> RJ 12 </td>
+<td> 12 </td>
+</tr>
+</table>
+
+</div>
+
+<!-- if clicked on each item in tab, it'll open this following -->
+<div id="Purchase order" class="tabcontent">
+<h3> Purchase order </h3>
+  <p><input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category"></p>
+<table id="tb">
+<tr> <th> Item name </th>
+<th> Item ID </th>
+</tr>
+<tr> <td> RJ 12 </td>
+<td> 12 </td>
+</tr>
+</table>
+</div>
+
+<!-- if clicked on each item in tab, it'll open this following -->
+<div id="CreateQ" class="tabcontent">
+<h3> Create Quotation </h3>
+
+<form action="createquo.html" >
+<label for="buyer"> Enter Buyer </label>
+<input type="text" id="buyer"> <br>
+
+<button> Submit </button>
+</form>
+
+</div>
+
+<!-- if clicked on each item in tab, it'll open this following -->
+<div id="CreatePO" class="tabcontent">
+<h3> Create PO </h3>
+<form action="createpo.html" >
+<label for="seller"> Enter Seller </label>
+<input type="text" id="seller"> <br>
+
+<button> Submit </button>
+</form>
+
+
+<!-- if clicked on each item in tab, it'll open this following -->
+<div id="CreatePO" class="tabcontent">
+<h3> Create PO </h3>
+  <!-- if clicked on each item in tab, it'll open this following -->
+<div id="CreatePO" class="tabcontent">
+<h3> Create PO </h3>
+  <p><input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category"></p>
+<table id="tb">
+<tr> <th> Item name </th>
+<th> Item ID </th>
+</tr>
+<tr> <td> RJ 12 </td>
+<td> 12 </td>
+</tr>
+</table>
+</div>
+</div>
+
+<!-- if clicked on each item in tab, it'll open this following -->
+<div id="CreateInv" class="tabcontent">
+<h3> Create Invoice </h3>
+  <p><input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category"></p>
+<table id="tb">
+<tr> <th> Item name </th>
+<th> Item ID </th>
+</tr>
+<tr> <td> RJ 12 </td>
+<td> 12 </td>
+</tr>
+</table>
+</div>
+
+
+
+<div class="row">
+  <div class="side">
+    
+
+
+
+
+
+</div>
+</div>
+
+<script>
+
+//for opening new pages when button in tab is clicked
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// for search button
+function myFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myMenu");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
+
+
+
+</script>
+
+</body>
+</html>
+
